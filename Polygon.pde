@@ -1,13 +1,14 @@
-class Triangle {
+class Polygon {
   ArrayList<PVector> ps;
   PVector pos;
   float rotation;
 
-  Triangle() {
+  Polygon(int angleCount, float diameter) {
     ps = new ArrayList<PVector>();
-    ps.add(new PVector(-20, 0));
-    ps.add(ps.get(ps.size() - 1).copy().rotate(TWO_PI / 3));
-    ps.add(ps.get(ps.size() - 1).copy().rotate(TWO_PI / 3));
+    ps.add(new PVector(0, diameter / 2));
+    for (int i = 0; i < angleCount - 1; i++) {
+          ps.add(ps.get(ps.size() - 1).copy().rotate(TWO_PI / angleCount));
+    }
     pos = new PVector(0, 0);
     rotation = 0;
   }
